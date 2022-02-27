@@ -1,0 +1,11 @@
+th, td {
+    font-size: x-large;
+}
+
+a {
+    transition: all .3s;
+}
+
+a:hover {
+    transform: scale(1.05);
+}

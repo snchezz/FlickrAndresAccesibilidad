@@ -1,0 +1,9 @@
+@font-face {
+    font-family: flickr;
+    src: url(assets/font/frutiger.ttf) format("opentype");
+}
+
+.sidenav-overlay {
+    display: block;
+    opacity: 0 !important;
+}

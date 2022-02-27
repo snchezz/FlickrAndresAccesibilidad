@@ -1,0 +1,53 @@
+<app-navlogued></app-navlogued>
+
+<div>
+    <br><br><br><br><br><br>
+    <div class="submit-form">
+                <div *ngIf="!submitted" (keyup)="comprobar(titulo.value, descripcion.value)"
+                    (keyup)="comprobarurl(descripcion.value)" (keyup)="comprobartitulo(titulo.value)" class="row center">
+            <div class="form-group">
+                <div class="input-field offset-l3 col s12 l6">
+                    <input [(ngModel)]="tutorial.titulo" name="titulo" type="text" #titulo required class="validate">
+                    <label for="titulo">Título</label>
+                    <span disabled *ngIf="isEnableddd == false">El titulo no puede estar vacio</span>
+                    <span disabled *ngIf="isEnableddd"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-field offset-l3 col s12 l6">
+                    <input [(ngModel)]="tutorial.descripcion" name="descripcion" #descripcion type="text" required
+                        class="validate">
+                    <label>Descripción (URL)</label>
+                    <span disabled *ngIf="isEnabled == false">El enlace debe tener un formato correcto</span>
+                    <span disabled *ngIf="isEnabled"></span>
+                </div>
+            </div>
+            <div class="input-field offset-l2 col s12 l8">
+                <a disabled *ngIf="isEnablebutton == false" id="button" class="btn red"><i
+                        class="material-icons right">send</i>Enviar</a>
+                <a *ngIf="isEnablebutton" id="button" (click)="guardarTutorial()" class="btn red"><i
+                        class="material-icons right">send</i>Enviar</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <a id="button" routerLink="/lista" class="btn red"><i
+                        class="material-icons right">arrow_back
+                    </i>Volver</a>
+            </div>
+        </div>
+
+        <div *ngIf="submitted" class="row">
+            <br><br><br><br>
+            <div class="offset-l3 col l6 m12 s12 center">
+                <h4>Tutorial enviado correctamente!</h4>
+                <br>
+                <div class="col s12">
+                    <a (click)="nuevoTutorial()" class="btn red">Agregar Otro</a>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col s12">
+                    <a routerLink="/lista" class="btn red">Volver a las listas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

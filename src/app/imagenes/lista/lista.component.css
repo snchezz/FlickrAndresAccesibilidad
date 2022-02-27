@@ -1,0 +1,21 @@
+#marginInput {
+    margin-left: 16%;
+}
+
+li {
+    border:  1px solid #000 ;
+    transition: all .3s;
+}
+
+li:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.btn {
+    transition: all .3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,61 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="tutorialActual.id">
+        <div>
+            <h5><strong>Titulo:</strong> {{ tutorialActual.titulo }}</h5>
+        </div>
+        <div>
+            <h5><strong>Descripcion:</strong></h5>
+            <img src="{{tutorialActual.descripcion}}" />
+        </div>
+        <div class="center">
+            <a routerLink="/detalles/{{ tutorialActual.id }}" class="btn red">Editar</a>
+        </div>
+    </div>
+
+    <div *ngIf="!tutorialActual">
+        <br />
+        <p>Por favor seleccione un imagen...</p>
+    </div>
+</div>
+
+
+<ng-template #editable>
+    <div *ngIf="tutorialActual.id" class="edit-form">
+        <h4>Detalles de la imagen</h4>
+        <form>
+            <div class="form-group">
+                <label for="titulo">Titulo</label>
+                <input type="text" class="form-control" id="titulo" [(ngModel)]="tutorialActual.titulo"
+                    name="tititulotle" />
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripcion</label>
+                <input class="form-control" id="descripcion" required [(ngModel)]="tutorialActual.descripcion"
+                    name="descripcion" />
+            </div>
+
+
+        </form>
+
+        <div class="center">
+            <a (click)="eliminarTutorial()" class="btn red">Eliminar</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a (click)="actualizarTutorial()" class="btn red">Actualizar</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <a routerLink="/lista" class="btn red">Volver</a>
+        </div>
+
+    </div>
+
+    <div *ngIf="!tutorialActual.id">
+        <br />
+        <div class="row">
+            <div class="offset-l3 col l6 m12 s12 center">
+                <h5>Es imposible acceder a esta imagen...</h5>
+                <img id="notfound" src="./assets/notfoundimage.png" alt="Not Found Image"><br>
+                <a routerLink="/lista" class="btn red">Volver</a>
+            </div>
+        </div>
+    </div>
+</ng-template>

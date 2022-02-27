@@ -1,0 +1,69 @@
+<div id="up"></div>
+
+<app-navlogued></app-navlogued>
+
+<div class="row">
+    <nav class="black">
+        <div class="nav-wrapper black col l9">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" (keyup)="search($event)" placeholder="Busca imágenes">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+
+        <div class="col l3 s12 m4 black">
+            <div class="col l4 s4">
+                <a class="btn red" onclick="M.toast({html: 'Cargando...'})" (click)="searchCoche($event)">Coches</a>
+            </div>
+            <div class="col l4 m4 s4">
+                <a class="btn red" onclick="M.toast({html: 'Cargando...'})" (click)="searchMoto($event)">Motos</a>
+            </div>
+            <div class="col l4 m4 s4">
+                <a class="btn red" onclick="M.toast({html: 'Cargando...'})" (click)="searchTec($event)">Tecnologia</a>
+            </div>
+        </div>
+
+    </nav>
+</div>
+<a id="buttonUp" href="home#up" class="btn-floating btn-large red"><i class="material-icons">arrow_upward</i></a>
+
+<!--Imagenes resultado de la API-->
+
+<div class="row">
+    <div class="col l4 m12 s12" *ngFor="let image of images">
+        <div class="card">
+            <a href="{{image.url}}_b.jpg">
+                <img class="materialboxed" src="{{image.url}}_m.jpg" title="{{image.title}}">
+            </a>
+            <a class="btn red col l4 m4 s4" target="_blank"
+                href="https://api.whatsapp.com/send?text=Comparte%20esta%20imágen%20con%20tus%20amigos%20https://www.flickr.com/">Compartir</a>
+            <a class="btn red col l4 m4 s4" onclick="M.toast({html: 'Me gusta'})">Me gusta</a>
+            <a class="btn red col l4 m4 s4" onclick="M.toast({html: 'Añadido a favoritos'})">Favorito</a>
+        </div>
+    </div>
+</div>
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4" *ngFor="let image of images">
+            <div class="card">
+                <a href="{{image.url}}_b.jpg">
+                    <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+                </a>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="search-results col-l4" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+</div>
+
+<app-footer></app-footer>

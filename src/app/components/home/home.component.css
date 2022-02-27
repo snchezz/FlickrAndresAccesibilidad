@@ -1,0 +1,29 @@
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+#buttonUp {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  font-size: 30px; /* Increase font size */
+}
+
+a {
+  transition: all .3s;
+}
+
+a:hover {
+  transform: scale(1.009);
+}
+
+i {
+  font-size: 1px;
+}

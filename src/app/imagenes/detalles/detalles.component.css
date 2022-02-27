@@ -1,0 +1,18 @@
+img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+#notfound {
+  width: 20%;
+  height: auto;
+}
+
+.btn {
+  transition: all .3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}

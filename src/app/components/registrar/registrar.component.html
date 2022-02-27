@@ -1,0 +1,46 @@
+<app-nav></app-nav>
+
+<body>
+
+    <h1 id="tituloReg" class="center">Registrar</h1>
+
+
+    <div id="marginTop" class="row">
+        <div class="offset-l1 col l5 s12">
+            <img class="responsive-img" src="./assets/flickrbysanchez.png" alt="flickrbysanchez">
+        </div>
+        <form class="col l5 offset-l1 s12" (keyup)="comprobar(name.value, email.value, password.value)" (keyup)="comprobarname(name.value)" (keyup)="comprobarmail(email.value)" (keyup)="comprobarpass(password.value)">
+            <div class="row">
+                <div class="input-field col s12 l8">
+                    <input id="name" type="text" #name required class="validate">
+                    <label for="name">Nombre</label>
+                    <span disabled *ngIf="isEnable == false">El nombre debe tener mas de 5 caracteres</span>
+                    <span disabled *ngIf="isEnable"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 l8">
+                    <input id="email" type="email"  #email required class="validate">
+                    <label for="email">Email</label>
+                    <span disabled *ngIf="isEnabled == false">El correo debe tener un formato correcto</span>
+                    <span disabled *ngIf="isEnabled"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 l8">
+                    <input id="password" type="password" #password class="validate">
+                    <label for="password">Contraseña</label>
+                    <span disabled *ngIf="isEnabledd == false">La contraseña debe tener mas de 7 caracteres</span>
+                    <span disabled *ngIf="isEnabledd"></span>
+                </div>
+            </div>
+
+            <a disabled *ngIf="isEnablebutton == false" id="button" (click)="addUser(name.value, email.value, password.value)" class="btn modal-trigger red"><i class="material-icons right">send</i>Registrar</a> 
+            <a *ngIf="isEnablebutton" id="button" (click)="addUser(name.value, email.value, password.value)" class="btn modal-trigger red"><i class="material-icons right">send</i>Registrar</a> 
+           
+            <br><br>
+            <span>¿Ya tienes cuenta? <a id="enlaceLogin" routerLink="/login"> Inicia Sesión</a></span>
+        </form>
+    </div>
+
+</body>

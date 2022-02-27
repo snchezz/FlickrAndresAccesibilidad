@@ -1,0 +1,20 @@
+<app-navlogued></app-navlogued>
+
+<br><br><br><br>
+
+<div id="htmlData" class="row">
+    <div class="offset-l2 col l9 s12">
+        <tr class="table-primary">
+            <th>Titulo</th>
+            <th>Enlace</th>
+            <th><a (click)="openPDF()" class="btn red">Generar PDF</a></th>
+            <th><a routerLink="/lista" class="btn red">Volver a listas</a> </th>
+        </tr>
+    </div>
+    <div class="offset-l2 col l9 s12">
+        <tr *ngFor="let tutorial of tutoriales">
+            <td>{{tutorial.titulo}}</td>
+            <td>{{tutorial.descripcion}}</td>
+        </tr>
+    </div>
+</div>
